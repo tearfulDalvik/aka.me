@@ -1,7 +1,6 @@
 ---
 layout: post
-# title: 🧀 密码学小记
-title: 密码学小记
+title: 🔒 密码学小记
 category: note
 permalink: note/cryptography/
 tags: notes
@@ -145,6 +144,11 @@ PS C:\> echo "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEkfOYhjBzGVTkZMtDMpl71pR1XfHwfr
 ```
 
 ## 证书吊销
+证书吊销在 [RFC 5280](https://tools.ietf.org/html/rfc5280) 定义。客户应在每次收到对方证书时查询证书吊销列表（CRL：Certificate Revocation List）。CRL 是公钥基础设施（PKI：Public Key Infrastructure）的一部分，它是一个有固定 URL 的文件，包含所有被吊销证书的序列号和日期等基础信息。
+
+CRL 的 URL 称为 CDP（CRL Distribution Point），通常被固定在证书的明文部分，因此也受到 CA 的私钥签名的保护。
+
+OCSP（Online Certificate Status Protocol）是用于在线查询证书是否被吊销的协议。通常是由服务器经常向 CDP 查询后缓存，通过 OCSP stapling 在 TLS 握手时传送回客户端（[RFC 6961](https://tools.ietf.org/html/rfc6961)）。在知道了证书签名之后，很容易就能想到其实现方式。只要在有效期内，由服务器代为发送也很安全。
 
 ## 密钥交换
 以上的加密和签名算法建立在同一个假设上：验证方知道加密方的密钥（对称加密）或公钥（非对称加密）。而现实生活中，服务器往往同时拥有公钥和私钥，但客户端却什么都没有。   
@@ -241,6 +245,8 @@ Server: cloudflare
 
 在连接建立之后过了很久，服务器才传回一个新的 Session Ticket，这也是 TLSv1.3 赶紧建立连接的一个体现，即 Post-Handshake 机制：  
 ![](https://img.akacdn.app/2167a420695e96e074a76e1923864f28.png)
+
+也许你会发现，以上的 TLS 流程只让客户端验证了服务器。如果要使服务器可以验证客户端，则需要在安全连接彻底建立之后，由客户端发送自己的公钥。该部分严格来说不在 TLS 范畴。
 
 ## GPG
 

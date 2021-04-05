@@ -5,7 +5,7 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: S3 Deploy
+name: S3 and GitHub Pages Deploy
 
 on:
   push:
@@ -60,13 +60,13 @@ jobs:
       run: yarn --frozen-lockfile
     - name: Build AMSF
       run: grunt build
-    - name: Sync to S3
+    - name: Deploy to S3 🚀
       uses: raulanatol/aws-s3-docker-action@master
       env:
         SOURCE: ./_site/
         TARGET: ''
         WITH_DELETE: true
-    - name: invalidate
+    - name: Invalidate CloudFront
       uses: chetan/invalidate-cloudfront-action@master
       env:
         DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
@@ -74,3 +74,14 @@ jobs:
         AWS_REGION: 'us-east-1'
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: Install SSH Client 🔑
+      uses: webfactory/ssh-agent@v0.4.1
+      with:
+        ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+    - name: Deploy to Pages 🚀
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        BRANCH: gh-pages
+        FOLDER: _site
+        CLEAN: true
+        SSH: true

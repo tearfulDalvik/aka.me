@@ -190,6 +190,9 @@ ECC 中曲线的核心在于有限域上的阿贝尔群，是数论和几何学�
 
 该式能够在阿贝尔域内被满足（乘法结合律）。因此使用 $$ sharedKey $$ 即可建立加密信道。
 
+![](https://upload.wikimedia.org/wikipedia/commons/4/4c/Public_key_shared_secret.svg)
+*来源：维基百科*
+
 ## 熵、随机数和盐
 熵指系统的失序现象，即越混乱，熵越大。而熵越大，就越不好还原信息的真实面目。
 
@@ -219,6 +222,7 @@ Windows 的磁盘加密 BitLocker，macOS 的 FileVault 都使用 AES 对称加�
 比特币的核心是区块链，区块链由无数区块组成，每个区块保存了数千笔交易，由矿工将交易打包成区块添加到区块链中。因此比特币交易（不是炒币）的信用体系就通过公开交易记录来实现，所有的交易、区块和地址都能在 [Blockchain.com](https://www.blockchain.com/) 查询到。大家都知道你之前收到过多少钱，花了多少，也就都知道了你的余额。每一笔交易都保存了付款的数量（Value）、对方的地址（Address）、付款者的公钥（Pkscript）等基本信息，并被付款者的私钥签名（Sigscript）。付款交易被你签名过，所以大家都认可是由你发出的转账；反过来，别人签名付款给你的交易就可以确定别人的确是转给你的。
 
 ![](https://developer.bitcoin.org/_images/en-micropayment-channel.svg)
+*来源：bitcoin.org*
 
 从你的第一笔付款开始，你的公钥就显示在交易记录里，并流传在网络中。在此之前，别人是不知道你的地址是否是真实存在的。将公钥和地址公开后，别人先将公钥 Hash 后与地址比对，成功后两者就公开绑定了，之前这个地址上的所有收入也就可以算到这把公钥上了。如果想自己弄一把自己的公钥绑定到某个其他地址上是行不通的，因为所有人都会发现这把公钥 Hash 后不能得到这个地址。所以如果打钱给了不存在的地址，那这笔钱还真就人间蒸发了，因为没有人拥有这个地址的密钥对，也就没有人能再从该地址发出转账。
 
@@ -237,6 +241,7 @@ $$ n $$ 的值随着参与挖矿的人数动态改变，根据区块头的 Bits�
 
 矿场一般这样挖矿：
 ![](https://developer.bitcoin.org/_images/en-pooled-mining-overview.svg)
+*来源：bitcoin.org*
 
 加密货币还采用了很多其他技术来支持，比如最长链原则、托管和仲裁等，本文只是简单介绍涉及密码学的关键部分。你可以在 [Learn Bitcoin and start building Bitcoin-based applications](https://developer.bitcoin.org/index.html) 查看完整的比特币网络运作原理。比特币是开源的货币，你可以在 [bitcoin/bitcoin: Bitcoin Core integration/staging tree](https://github.com/bitcoin/bitcoin/) 查看比特币的源代码。
 

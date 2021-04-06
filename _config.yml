@@ -82,7 +82,7 @@ name:           Gufeng Shen
 # - name_short: Sparanoid
 #
 # Default:      AMSF
-name_short:     Gufeng Shen
+name_short:     Gufeng
 
 # Site description
 #
@@ -158,7 +158,7 @@ url:            https://gufeng.sh
 #
 # Used by Safari mask-icon, Chrome Web App theme color
 colors:
-  theme:        "#ff00b4"
+  theme:        "#000"
   background:   "#fff"
 
 # Service Worker Precache

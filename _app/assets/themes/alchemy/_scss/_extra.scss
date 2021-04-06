@@ -4,6 +4,13 @@
     --link-color-l: 50%;
 }
 
+img.emoji {
+    height: 1em;
+    width: 1em;
+    margin: 0 0.05em 0 0.1em;
+    vertical-align: -0.1em;
+}
+
 #markdown-toc a {
     text-decoration: none;
     color: var(--link-color);
@@ -25,15 +32,19 @@
 }
 
 .content blockquote > p {
-    padding-left: 2.8rem;
+    padding-left: 0.8rem;
     border-left: 2px solid var(--link-color);
     padding-bottom: 0;
     margin-bottom: 0;
 }
 
-p > code, li > code {
+p > code,
+li > code {
     display: inline;
     line-break: anywhere;
+}
+
+code {
     font-size: 1em;
 }
 
@@ -42,7 +53,7 @@ pre code {
     white-space: pre;
 }
 
-.content img {
+.content > img {
     --space-deco: 8vw;
     display: block;
     width: calc(100% + var(--space-deco) * 2);
@@ -52,20 +63,32 @@ pre code {
     margin-top: 1.8rem;
 }
 
+@media (min-width: 49em) {
+    .header h1 {
+        font-size: 2.2vw;
+    }
+}
+
+@media (max-width: 48em) {
+    .header h1 {
+        font-size: 130%;
+    }
+}
+
 @media (max-width: 1080px) {
-    .content img {
+    .content > img {
         --space-deco: 8vw;
     }
 }
 
 @media (max-width: 640px) {
-    .content img {
+    .content > img {
         --space-deco: 4vw;
     }
 }
 
 h2:not(:first-child) {
-    margin: 5vmin 0 1rem;
+    margin: 4vh 0 1rem;
 }
 
 pre,

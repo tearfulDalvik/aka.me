@@ -5,9 +5,9 @@
 <article lang="{{ amsf_page_lang }}">
 
   <!-- Post title -->
-  <header class="header">
+  <header class="header m-b-sparse">
 
-    <h1 class="{{ amsf_page_heading_class }}" title="{{ amsf_page_title | strip_html | xml_escape }}" data-title="{{ amsf_page_title | strip_html | xml_escape }}">
+    <h1 class="{{ amsf_page_heading_class }} m-b-compat" title="{{ amsf_page_title | strip_html | xml_escape }}" data-title="{{ amsf_page_title | strip_html | xml_escape }}">
       {{ amsf_page_heading }}
     </h1>
 
@@ -25,7 +25,7 @@
   </header>
 
   <!-- Post content -->
-  <div class="content read p-t-grand">
+  <div class="content read p-t-sparse">
     {{ content }}
 
     {% assign date_publish = page.date | date: "%b %-d, %Y" %}

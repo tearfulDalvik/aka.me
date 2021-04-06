@@ -1,16 +1,8 @@
 ---
-layout: page
-title: About
-permalink: /about/
-desc: 關於我・私について・Introduction
+layout: default
+permalink: /
+thumb_force_logo: true
 css: |
-  @media (min-width: 640px) {
-    .content header {
-        background: url(https://img.akacdn.app/41a9b5d65a595b6ce79ce16afad91270.png) no-repeat;
-        background-position: 95% center;
-    }
-  }
-
   .media-links li.twitter {
     margin-right: 32px;
   }
@@ -44,15 +36,13 @@ css: |
   }
 ---
 
-# Gufeng Shen&nbsp;&nbsp;<small><cite>(a.k.a. tearfulDalvik)</cite></small>  
-[ifengge.cn](https://ifengge.cn/)
+<div class="content">
 
-## Contact
+<h2>Contact</h2>
 
-- telegram: [@GTX108O](https://t.me/GTX108O)
-- email: [meizaizheli@ifengge.cn](mailto:meizaizheli@ifengge.cn)
+email: <a href="mailto:hi@gufeng.sh">hi@gufeng.sh</a>
 
-## Colophon
+<h2>Colophon</h2>
 <p>那天气总是阴沉的，如铁石心肠
 <br>
 见过大的峡谷吗？
@@ -61,6 +51,9 @@ css: |
 <br>
 <small>Granted by <b>黄克思</b></small>
 </p>
-<p><a href="https://sparanoid.com/lab/amsf/"><abbr title="Almace Scaffolding">AMSF</abbr></a> (<a href="https://github.com/sparanoid/sparanoid.com">Source</a>) - <a href="https://github.com/">GitHub</a> - <a href="https://aws.amazon.com/cloudfront/">CloudFront</a> - <a href="https://neovim.io/">NeoVim</a></p>
 
+</div>
+<div class="copyright">
+<p><a href="https://sparanoid.com/lab/amsf/"><abbr title="Almace Scaffolding">AMSF</abbr></a> (<a href="https://github.com/sparanoid/sparanoid.com">Source</a>) - <a href="https://github.com/">GitHub</a> - <a href="https://cloudflare.com/">Cloudflare</a></p>
 All posts are © Gufeng Shen, all rights reserved.
+</div>

@@ -1,0 +1,10 @@
+@import "../../../_scss/variables";
+
+@import 'alchemyui';
+@import 'extra';
+@import 'plugins';
+
+// Finally user custom styles go here
+@import "../../../_scss/user";
+
+@import "../../curtana/_scss/components/randomized";

@@ -49,16 +49,13 @@ $ pip3 install -r requirements.txt
 
 This is a guide only tested on [Google Chrome v70](https://dl.google.com).
 
-- **Before you logged in, turn on Developer Tools ( ⌥⌘I or Ctrl+Shift+I )**
-
-- Follow the regular steps and load a question.
-- Run \_\_main\_\_.pyw 
-  - Windows: Double click, and a black window will flashing past
-  - macOS: Run ```pyhton3 __main__.pyw``` in the terminal
-- Switch to the ```Console``` Tab 
-- Change the Javascript contexts dropdown to ```IFrame - main (CPractice.aspx)```
-- Paste everything in index.min.js then press ```Enter```
-- Awala! You are a cheater now!
+1. **Before you logged in, turn on Developer Tools ( ⌥⌘I or Ctrl+Shift+I )**
+2. Follow the regular steps and load a question.
+3. Run \_\_main\_\_.pyw 
+4. Switch to the ```Console``` Tab 
+5. Change the Javascript contexts dropdown to ```IFrame - main (CPractice.aspx)```
+6. Paste everything in index.min.js then press ```Enter```
+7. Awala! You are a cheater now!
 
 
 

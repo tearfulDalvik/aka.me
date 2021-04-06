@@ -1,0 +1,19 @@
+<!-- Main navigation with current page / categoriy highlighted -->
+<div class="header">
+  <ul class="tab">
+    {% for item in site.data.header %}
+      {%- include amsf/relative_url url=item.url -%}
+      {%- assign item_url = amsf_relative_url -%}
+      {%- assign lowercased_title = item.title | slugify -%}
+      <li class="item {% if page.permalink == item.url or page.category == lowercased_title %}active{% endif %}">
+        <a class="low-profile" href="{{ item_url }}">
+          {%- if item.title == "__home__" -%}
+            {{ amsf_site_name }}
+          {%- else -%}
+            {{ item.title }}
+          {%- endif -%}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

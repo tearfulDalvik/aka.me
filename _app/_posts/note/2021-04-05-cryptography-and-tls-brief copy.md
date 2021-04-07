@@ -3,7 +3,7 @@ layout: post
 title: 🔒 密码学小记
 category: note
 permalink: note/cryptography/
-tags: notes
+tags: blog_notes
 css: |
   img.inline {
     display: inline-block;

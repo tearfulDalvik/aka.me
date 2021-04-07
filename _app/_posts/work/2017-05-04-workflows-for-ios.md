@@ -1,12 +1,9 @@
 ---
 layout: post
-title: iOS Workflows
+title: Shortcuts for iOS
 category: work
 permalink: work/ios-workflows/
 tags: works_tools
-scheme-text: "#6a87de"
-scheme-link: "#6a87de"
-scheme-hover: "#6a87de"
 last-modified: 201711242329
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: 🛰 Build your own live network!
 category: note
 permalink: note/live-network/
-tags: notes
+tags: blog_play
 ---
 
 ## Under the hood

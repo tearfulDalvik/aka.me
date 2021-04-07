@@ -3,7 +3,7 @@ layout: post
 title: 🎰 Compiling SQLCipher on Windows and Linux
 category: note
 permalink: note/compiling-sqlcipher/
-tags: notes
+tags: blog_play
 ---
 
 Zetetic does not provide a dynamic library installer for users. Therefore, a static library is a great choice to deliver.

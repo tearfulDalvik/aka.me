@@ -5,6 +5,8 @@ category: work
 permalink: work/word-line-spacer/
 tags: works_tools
 last-modified: 201708131400
+scheme-text: "#1b24fb"
+scheme-link: "#1b24fb"
 ---
 
 > 仅适用于 Microsoft Word，且必须支持 VBA 脚本

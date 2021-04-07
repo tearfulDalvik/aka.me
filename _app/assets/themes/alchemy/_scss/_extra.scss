@@ -2,6 +2,7 @@
     --link-color-h: 318;
     --link-color-s: 100%;
     --link-color-l: 50%;
+    --color-primary: var(--link-color);
 }
 
 #markdown-toc a {
@@ -11,6 +12,7 @@
 
 .content > p > a {
     color: var(--link-color);
+    font-weight: 500;
 }
 
 .content.read {
@@ -25,7 +27,7 @@
 }
 
 .content blockquote > p {
-    padding-left: 0.8rem;
+    padding-left: 1em;
     border-left: 2px solid var(--link-color);
     padding-bottom: 0;
     margin-bottom: 0;

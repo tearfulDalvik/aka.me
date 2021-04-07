@@ -7,5 +7,6 @@ tags: works_graphic
 scheme-link: "#202121"
 plugin: lightense
 ---
-[![](https://img.akacdn.app/57800373b599b7f4beef0cb9ab9df1a3.png)](https://img.akacdn.app/image/X2aO)
+![](https://img.akacdn.app/57800373b599b7f4beef0cb9ab9df1a3.png)
+
 HTAA is an abbreviation of the Hardware Technology and Application Association.  

@@ -4,7 +4,12 @@ title: 筆記
 permalink: /note/
 desc: ノート・TL;DR
 ---
+<h2>Notes</h2>
+{% for post in site.tags.blog_notes %}
+  {% include themes/{{ site.amsf_theme }}/includes/page-item.html %}
+{% endfor %}
 
-{% for post in site.tags.notes %}
+<h2>Play</h2>
+{% for post in site.tags.blog_play %}
   {% include themes/{{ site.amsf_theme }}/includes/page-item.html %}
 {% endfor %}

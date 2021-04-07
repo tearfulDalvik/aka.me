@@ -3,7 +3,7 @@ layout: post
 title: 🎱 A Font Born With Barcodes
 category: note
 permalink: note/a-font-born-with-barcodes/
-tags: notes
+tags: blog_play
 css: |
   barcode {
     font-family: 'Libre Barcode 128 Text', cursive;

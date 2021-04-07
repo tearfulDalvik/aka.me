@@ -4,6 +4,8 @@ title: Calendarista
 category: work
 permalink: work/calendarista/
 tags: works_personal
+scheme-link: "#ff3f00"
+scheme-text: "#ff3f00"
 ---
 
 ## Intro

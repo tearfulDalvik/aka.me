@@ -3,7 +3,7 @@ layout: post
 title: 🔑 The Rakish-Land's Auth Flow
 category: note
 permalink: note/rakishland-authflow/
-tags: notes
+tags: blog_play
 ---
 
 ## Table of Contents

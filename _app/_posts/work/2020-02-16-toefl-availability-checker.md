@@ -4,6 +4,8 @@ title: TOEFL Seat Availability Checker
 category: work
 permalink: work/toefl-seat-availability-checker/
 tags: works_personal
+scheme-link: "#a600ff"
+scheme-text: "#a600ff"
 ---
 
 ## Intro

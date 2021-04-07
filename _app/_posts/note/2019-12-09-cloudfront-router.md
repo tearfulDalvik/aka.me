@@ -3,7 +3,7 @@ layout: post
 title: ☁ CloudFront Origin Router
 category: note
 permalink: note/cloudfront-origin-router/
-tags: notes
+tags: blog_play
 ---
 
 CloudFront delivers websites to users from the nearest locations. Meanwhile, it forward requests that are not cached or not permitted to be cached to your origin servers. However, it is not flexible enough and neither smart enough since it cannot automatically decide the fastest origin based on the response time from edge nodes to origin servers, cannot differentiate execution timeout and connect timeout, etc.

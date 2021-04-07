@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CloudFront Origin Router
+title: ☁ CloudFront Origin Router
 category: note
 permalink: note/cloudfront-origin-router/
 tags: notes

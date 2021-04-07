@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Compiling SQLCipher on Windows and Linux
+title: 🎰 Compiling SQLCipher on Windows and Linux
 category: note
 permalink: note/compiling-sqlcipher/
 tags: notes

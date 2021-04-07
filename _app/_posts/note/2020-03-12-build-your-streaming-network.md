@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Build your own live network!
+title: 🛰 Build your own live network!
 category: note
 permalink: note/live-network/
 tags: notes

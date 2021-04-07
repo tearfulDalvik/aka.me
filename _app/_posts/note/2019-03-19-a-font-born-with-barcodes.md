@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Font Born With Barcodes
+title: 🎱 A Font Born With Barcodes
 category: note
 permalink: note/a-font-born-with-barcodes/
 tags: notes

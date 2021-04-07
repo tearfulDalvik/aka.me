@@ -245,7 +245,9 @@ $$ n $$ 的值随着参与挖矿的人数动态改变，根据区块头的 Bits�
 ![](https://developer.bitcoin.org/_images/en-pooled-mining-overview.svg)
 *来源：bitcoin.org*
 
-加密货币还采用了很多其他技术来支持，比如最长链原则、托管和仲裁等，本文只是简单介绍涉及密码学的关键部分。你可以在 [Learn Bitcoin and start building Bitcoin-based applications](https://developer.bitcoin.org/index.html) 查看完整的比特币网络运作原理。比特币是开源的货币，你可以在 [bitcoin/bitcoin: Bitcoin Core integration/staging tree](https://github.com/bitcoin/bitcoin/) 查看比特币的源代码。
+也许聪明的你会发现，随着参与的人数增加， $$ n $$ 越来越大。是不是位数稍少的 SHA 就可以被矿工们破解了呢？答案是：不太可能，但 SHA 函数本身也不是不可攻破的。矿工通常使用定制的 ASIC 设备进行简单哈希碰撞，它进行的是不完全的原像攻击，不会对 SHA 2 的安全性造成影响。
+
+加密货币还拥有其他功能和性质，比如托管和仲裁等，本文只是简单介绍涉及密码学的关键部分。你可以在 [Learn Bitcoin and start building Bitcoin-based applications](https://developer.bitcoin.org/index.html) 查看完整的比特币网络运作原理。比特币是开源的货币，你可以在 [bitcoin/bitcoin: Bitcoin Core integration/staging tree](https://github.com/bitcoin/bitcoin/) 查看比特币的源代码。
 
 ## Wi-Fi 访问保护（WPA）
 Wi-Fi 访问保护（WPA：Wi-Fi Protected Access®） 目前的最新版本是 WPA-3[^4]，用于保护无线局域网。在你的手机输入 Wi-Fi 密码开始，WPA 系统就在为你服务。WPA-3 在现代路由器和无线接入点产品中已经普及。

@@ -1,7 +1,7 @@
 :root {
-    --link-color-h: 318;
-    --link-color-s: 100%;
-    --link-color-l: 50%;
+    --link-color-h: 285;
+    --link-color-s: 84%;
+    --link-color-l: 45%;
     --color-primary: var(--link-color);
 }
 
@@ -33,19 +33,16 @@
     margin-bottom: 0;
 }
 
-p > code,
-li > code {
+code {
+    font-size: 1em;
     display: inline;
     line-break: anywhere;
 }
 
-code {
-    font-size: 1em;
-}
-
-pre code {
+pre > code {
     padding: 0;
     white-space: pre;
+    display: block;
 }
 
 .content > img {

@@ -2,45 +2,12 @@
 layout: default
 permalink: /
 thumb_force_logo: true
-css: |
-  .media-links li.twitter {
-    margin-right: 32px;
-  }
-  
-  .media-links li.twitter a {
-    width: 35px;
-    height: 29px;
-    background-image: url('https://accelerate.akacdn.app/cdn/img/about/twitter.svg');
-  }
-  
-  .media-links li.twitter:hover a {
-    background-image: url('https://accelerate.akacdn.app/cdn/img/about/twitter-hover.svg');
-  }
-  
-  .media-links li.github {
-    margin-right: 31px;
-  }
-  
-  .media-links li.github a {
-    width: 29px;
-    height: 35px;
-    background-image: url('https://accelerate.akacdn.app/cdn/img/about/github.svg');
-  }
-  
-  .media-links li.github:hover a {
-    background-image: url('https://accelerate.akacdn.app/cdn/img/about/github-hover.svg');
-  }
-  
-  .media-links li.flickr {
-    margin-right: 36px;
-  }
 ---
 
 <div class="content">
 
-<h2>Contact</h2>
-
-email: <a href="mailto:hi@gufeng.sh">hi@gufeng.sh</a>
+<p>📫 email: <a href="mailto:hi@gufeng.sh">hi@gufeng.sh</a></p>
+<p>🎁 gpg: <code>3F:14:05:32:2E:D5:CD:26</code></p>
 
 <h2>Colophon</h2>
 <p>那天气总是阴沉的，如铁石心肠

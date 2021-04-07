@@ -5,6 +5,31 @@
     --color-primary: var(--link-color);
 }
 
+@font-face {
+    font-family: bickham-script-pro-3;
+    font-weight: 700;
+    font-style: normal;
+    src: url(/assets/fonts/bickham-script-pro-3-bold.woff2) format("woff2")
+}
+
+.watermark {
+    font-family: bickham-script-pro-3;
+    font-feature-settings: "swsh";
+    opacity: .02;
+    position: absolute;
+    user-select: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    font-size: 10vw;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+}
+
 #markdown-toc a {
     text-decoration: none;
     color: var(--link-color);

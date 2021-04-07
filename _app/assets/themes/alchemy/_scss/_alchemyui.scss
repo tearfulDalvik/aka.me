@@ -1,3 +1,10 @@
+@charset "UTF-8";
+/*!
+* Alchemy UI v1.3 (https://github.com/tearfulDalvik/Alchemy)
+* Copyright 2020 Gufeng Shen
+* Licensed under MIT (https://github.com/tearfulDalvik/Alchemy/blob/main/LICENSE)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
 :root {
   --black: black;
   --black-a5: hsla(0, 0%, 0%, .05);
@@ -968,6 +975,13 @@ ul:not(.tab) > li:before {
   background: var(--color-primary);
 }
 
+ol > li {
+  padding-bottom: 4px;
+  list-style: lower-roman;
+}
+ol > li::marker {
+  color: var(--color-primary);
+}
 @media (min-width: 49em) {
   ol {
     padding: 0;
@@ -980,13 +994,6 @@ ul:not(.tab) > li:before {
   ol > li {
     list-style: decimal;
   }
-}
-ol > li {
-  padding-bottom: 4px;
-  list-style: lower-roman;
-}
-ol > li::marker {
-  color: var(--color-primary);
 }
 
 .list {
@@ -1465,3 +1472,5 @@ hr {
   margin: 16px 0;
   height: 0;
 }
+
+/*# sourceMappingURL=alchemy.css.map */

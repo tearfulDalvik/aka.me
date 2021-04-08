@@ -4,7 +4,7 @@ title: 🔒 密码学小记
 category: note
 permalink: note/cryptography/
 tags: blog_notes
-plugin: twemoji
+plugin: twemoji lazyload lightense
 css: |
   img.inline {
     display: inline-block;
@@ -15,7 +15,7 @@ css: |
   }
 ---
 
-当客户端和服务器建立了安全连接之后，浏览器会显示一个小锁在地址栏旁：![](https://img.akacdn.app/b01839032157c7fd052777df1372388c.png){:.inline}。这时候，你和网页中的所有元素打交道，黑客都是看不到的。如果浏览器检测到了风险，有一些元素没有通过安全的连接发送和接收，浏览器会显示一个醒目的红色感叹号 ![](https://img.akacdn.app/cca179c52eb7eeb8856dd36627baa652.png){:.inline} 来提醒你。  
+当客户端和服务器建立了安全连接之后，浏览器会显示一个小锁在地址栏旁：![](https://img.akacdn.app/b01839032157c7fd052777df1372388c.png){: .no-lightense .inline}。这时候，你和网页中的所有元素打交道，黑客都是看不到的。如果浏览器检测到了风险，有一些元素没有通过安全的连接发送和接收，浏览器会显示一个醒目的红色感叹号 ![](https://img.akacdn.app/cca179c52eb7eeb8856dd36627baa652.png){: .no-lightense .inline} 来提醒你。  
 或者，你掏出新买的手机，输入家里的 Wi-Fi 密码，开始上网。  
 这些平凡得理所应当的场景，背后的技术在默默保护我们的信息安全。在这样的小锁后面，计算机系统里都发生了什么呢？
 
@@ -77,7 +77,8 @@ frg7h8mbXkbHfIB0Qv4gW3nIUUDJ8a3ipdMAQGkztpOCt2G7CPNMdCvd3w==
 证书是一系列信息、公钥和签名的容器，可以被打包成为文件。证书不包含私钥，公钥和其他信息是平等的，通常使用 ASN.1 编码，并保存为 X.509 文件格式。如果要将证书和私钥一起打包，则可以使用 PKCS#12 再次封装。  
 
 首先，个人计算机操作系统都内置了很多根证书(也称 CA：Certificate Authority)。每个人都可以创建根证书，只需要一对公钥和私钥即可。但不是每个人的根证书都被系统默认信任。你可以在 “运行” 窗口中输入 `certlm.msc`，然后在弹出的窗口中依次选择 “凭证” 和 “受信任的根证书授权单位” 看到你的电脑信任的所有根证书颁发单位。
-![](https://img.akacdn.app/4661c0cd5e24f1e60aacbd1a6194e245.png){: .size-small}
+
+![](){: .lazy data-src="https://img.akacdn.app/4661c0cd5e24f1e60aacbd1a6194e245.png"}
 
 根证书是证书的起点，一般由顶级的互联网公司掌握。在向这些机构申请证书时，会被要求提供相关的证明才能获取到他们的签名。出于安全和效率的目的，通常不直接向根证书机构申请，而是通过中间 CA 来进行颁发。中间 CA 可以继续给其他机构颁发中间 CA 证书，也可以颁发最后的叶子证书。  
 
@@ -179,7 +180,8 @@ ECC 中曲线的核心在于有限域上的阿贝尔群，是数论和几何学�
 通常，一方选择一个公开的曲线，通过随机数生成私钥，并通过曲线上定义的新运算将私钥和基点相乘，即 $$ pubKey=privKey \times G $$。由于曲线上满足加法和乘法的交换、结合律，该乘法的复杂度是 $$ O(log(n)) $$，其中，$$ n_{max}=2^{私钥长度} $$，即最多运算次数不会超过密钥长度。
 
 该运算的逆运算在缺少私钥 $$ privKey $$ 的情况下因为存在太多分解的可能性，几乎不可逆，暴力破解私钥的复杂度为 $$ O(n) $$。在密钥长度为 256 位时，加密最多需要进行 256 次迭代，而解密至少需要迭代 $$ 1.15 \times 10^{77} $$ 次。拥有这样的性质的函数被称为活版门函数（Trapdoor function）。
-![trapdoor function explained](https://upload.wikimedia.org/wikipedia/commons/8/8f/Trapdoor_permutation.svg)
+
+![trapdoor function explained](){: .lazy data-src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Trapdoor_permutation.svg"}
 *来源：维基百科*
 
 ## 迪菲-赫尔曼密钥交换协议（DH）
@@ -193,7 +195,7 @@ ECC 中曲线的核心在于有限域上的阿贝尔群，是数论和几何学�
 
 该式能够在阿贝尔域内被满足（乘法结合律）。因此使用 $$ sharedKey $$ 即可建立加密信道。
 
-![](https://upload.wikimedia.org/wikipedia/commons/4/4c/Public_key_shared_secret.svg)
+![](){: .lazy data-src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Public_key_shared_secret.svg"}
 *来源：维基百科*
 
 ## 熵、随机数和盐
@@ -224,7 +226,7 @@ Windows 的磁盘加密 BitLocker，macOS 的 FileVault 都使用 AES 对称加�
 ### 交易
 比特币的核心是区块链，区块链由无数区块组成，每个区块保存了数千笔交易，由矿工将交易打包成区块添加到区块链中。因此比特币交易（不是炒币）的信用体系就通过公开交易记录来实现，所有的交易、区块和地址都能在 [Blockchain.com](https://www.blockchain.com/) 查询到。大家都知道你之前收到过多少钱，花了多少，也就都知道了你的余额。每一笔交易都保存了付款的数量（Value）、对方的地址（Address）、付款者的公钥（Pkscript）等基本信息，并被付款者的私钥签名（Sigscript）。付款交易被你签名过，所以大家都认可是由你发出的转账；反过来，别人签名付款给你的交易就可以确定别人的确是转给你的。
 
-![](https://developer.bitcoin.org/_images/en-micropayment-channel.svg)
+![](){: .lazy data-src="https://developer.bitcoin.org/_images/en-micropayment-channel.svg"}
 *来源：bitcoin.org*
 
 从你的第一笔付款开始，你的公钥就显示在交易记录里，并流传在网络中。在此之前，别人是不知道你的地址是否是真实存在的。将公钥和地址公开后，别人先将公钥 Hash 后与地址比对，成功后两者就公开绑定了，之前这个地址上的所有收入也就可以算到这把公钥上了。如果想自己弄一把自己的公钥绑定到某个其他地址上是行不通的，因为所有人都会发现这把公钥 Hash 后不能得到这个地址。所以如果打钱给了不存在的地址，那这笔钱还真就人间蒸发了，因为没有人拥有这个地址的密钥对，也就没有人能再从该地址发出转账。
@@ -243,7 +245,8 @@ $$ n $$ 的值随着参与挖矿的人数动态改变，根据区块头的 Bits�
 比如，刚才提到的区块 Block 677983 的 Hash 值为 `0x0000000000000000000861<省略>`，前 76 位全部为 0，挖到币的机率为 $$ \frac{1}{2^{76}} $$。因此，现在个人使用显卡挖 BTC 已经几乎不可能。
 
 矿场一般这样挖矿：
-![](https://developer.bitcoin.org/_images/en-pooled-mining-overview.svg)
+
+![](){: .lazy data-src="https://developer.bitcoin.org/_images/en-pooled-mining-overview.svg"}
 *来源：bitcoin.org*
 
 加密货币还拥有其他功能和性质，比如托管和仲裁等，本文只是简单介绍涉及密码学的关键部分。你可以在 [Learn Bitcoin and start building Bitcoin-based applications](https://developer.bitcoin.org/index.html) 查看完整的比特币网络运作原理。比特币是开源的货币，你可以在 [bitcoin/bitcoin: Bitcoin Core integration/staging tree](https://github.com/bitcoin/bitcoin/) 查看比特币的源代码。
@@ -266,8 +269,10 @@ TLSv1.3 的核心流程为：
 1. 客户端发送 Hello，快速进行密钥交换。使用上次的预共享密钥 PSK 或者 ECDHE 进行新的密钥交换。作为客户端，为节省时间，说我不管你服务器同不同意 PSK，反正 PSK 和选好的 ECDHE 的曲线名和公钥，直接都先发送过去。
 2. 服务器选择一项交换方法，返回对应的 Hello。双方通过密钥交换或者 PSK 已经得到会话的前密钥🔑。
 3. 使用密钥演变算法（HKDF：HMAC-based key-derivation function）将会话前密钥变成会话密钥🔑（类似摘要。用来保证不同算法的结果一致）。在会话密钥🔑加密的信道中验证服务器身份，然后直接开始传输数据。
+
 得益于 TLSv1.3 的全新连接流程，在下图中从带大括号的开始数据就已经开始被加密了。双方不管三七二十一赶紧先把加密连接建立了，你认不认识我都一会儿再说。这样做主要是为了避免降维打击，即中间人强制让双方降级到不安全的加密方式。
-![](https://img.akacdn.app/5576424a94f5f08f2775ad88d37bef74.png)
+
+![](){: .lazy data-src="https://img.akacdn.app/5576424a94f5f08f2775ad88d37bef74.png"}
 *来源： IETF 8446*
 
 使用 OpenSSL 的 `s_client` 子系统建立 TLS 连接：
@@ -307,7 +312,8 @@ Server: cloudflare
 这次 TLS 握手选择了加密套件 `TLS_AES_256_GCM_SHA384`，即使用 AES_256_GCM 算法来维护后续的对称加密，使用 SHA384 来对消息签名。  
 
 在连接建立之后过了很久，服务器才传回一个新的 Session Ticket，这也是 TLSv1.3 赶紧建立连接的一个体现，即 Post-Handshake 机制：  
-![](https://img.akacdn.app/2167a420695e96e074a76e1923864f28.png)
+
+![](){: .lazy data-src="https://img.akacdn.app/2167a420695e96e074a76e1923864f28.png"}
 
 也许你会发现，以上的 TLS 流程只让客户端验证了服务器。如果要使服务器可以验证客户端，则需要在安全连接彻底建立之后，由客户端发送自己的公钥。该部分严格来说不在 TLS 范畴。
 

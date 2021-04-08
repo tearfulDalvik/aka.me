@@ -28,6 +28,17 @@
   </script>
 {% endif %}
 
+<!-- vanilla-lazyload -->
+{% if page.plugin contains 'lazyload' %}
+  <script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js"></script>
+  <script async defer type="text/javascript">
+    window.lazyLoadOptions = {
+      // Your custom settings go here
+    };
+  </script>
+{% endif %}
+
+
 <!-- Lightense Images -->
 {% if page.plugin contains 'lightense' %}
   <script src="{{ '/js/lightense.min.js?assets-inline' | prepend: amsf_theme_assets }}"></script>

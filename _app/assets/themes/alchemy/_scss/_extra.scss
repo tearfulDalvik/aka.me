@@ -9,13 +9,22 @@
     font-family: bickham-script-pro-3;
     font-weight: 700;
     font-style: normal;
-    src: url(/assets/fonts/bickham-script-pro-3-bold.woff2) format("woff2")
+    src: url(/assets/fonts/bickham-script-pro-3-bold.woff2) format("woff2");
+}
+
+img[src=""]:not([srcset]) {
+    opacity: 0;
+}
+
+img {
+    border-radius: 0;
+    transition: opacity 0.3s linear;
 }
 
 .watermark {
     font-family: bickham-script-pro-3;
     font-feature-settings: "swsh";
-    opacity: .03;
+    opacity: 0.03;
     position: absolute;
     user-select: none;
     top: 0;
@@ -27,7 +36,6 @@
     text-align: center;
     margin: 0;
     padding: 0;
-
 }
 
 #markdown-toc a {
@@ -68,16 +76,6 @@ pre > code {
     padding: 0;
     white-space: pre;
     display: block;
-}
-
-.content > img {
-    --space-deco: 8vw;
-    display: block;
-    width: calc(100% + var(--space-deco) * 2);
-    margin-left: calc(var(--space-deco) * -1);
-    margin-right: calc(var(--space-deco) * -1);
-    margin-bottom: 1.8rem;
-    margin-top: 1.8rem;
 }
 
 @media (min-width: 49em) {

@@ -4,6 +4,7 @@ title: 🔒 密码学小记
 category: note
 permalink: note/cryptography/
 tags: blog_notes
+plugin: twemoji
 css: |
   img.inline {
     display: inline-block;

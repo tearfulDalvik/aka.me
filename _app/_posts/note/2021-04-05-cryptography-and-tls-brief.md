@@ -236,7 +236,7 @@ Windows 的磁盘加密 BitLocker，macOS 的 FileVault 都使用 AES 对称加�
 ### 挖矿
 最后，将交易打包成块并存放到区块链的行为就称为挖矿。不仅可以从交易中赚到手续费，只要成功把区块附加到主链，就会得到一笔系统奖励。比如提交刚才 Block 677983 区块的矿工，就得到了价值 $56,979.08 美元的奖励。奖励的币显示为 “COINBASE (Newly Generated Coins)”，直接转入钱包地址。每一个新的区块都有新的 COINBASE。
 
-区块中也存在 Hash 摘要，这次既不是签名，也不是为了摘要，而是单纯为了增加挖矿的难度。只有少数人能够将区块打包到区块链中：如果人人都能同时附加区块，那么链中必然会出现信息不一致，并且会由能够更快附加新块的人所控制。BTC 采用的机制是 PoW（Proof of Work），做的工作越多，得到的奖励就越多（即 one-CPU-one-vote[^2]）。PoW 指的是在打包时，矿工必须通过调整区块头的一个随机数（nonce）使得区块头的 SHA-256 结果的前 $$ n $$ 位数全部[^3]为 0。这样，挖到币的几率为 $$ \frac{1}{2^n} $$，并且 $$ n $$ 越大，找到一个使 SHA-256 结果的前 $$ n $$ 位全部为 0 的随机数就越难。
+区块中也存在 Hash 摘要，这次既不是签名，也不是为了摘要，而是单纯为了增加挖矿的难度。只有少数人能够将区块打包到区块链中：如果人人都能同时附加区块，那么链中必然会出现信息不一致，并且会由能够更快附加新块的人所控制（最长链原则）。BTC 采用的机制是 PoW（Proof of Work），做的工作越多，得到的奖励就越多（即 one-CPU-one-vote[^2]）。PoW 指的是在打包时，矿工必须通过调整区块头的一个随机数（nonce）使得区块头的 SHA-256 结果的前 $$ n $$ 位数全部[^3]为 0。这样，挖到币的几率为 $$ \frac{1}{2^n} $$，并且 $$ n $$ 越大，找到一个使 SHA-256 结果的前 $$ n $$ 位全部为 0 的随机数就越难。
 
 $$ n $$ 的值随着参与挖矿的人数动态改变，根据区块头的 Bits、规定的每十分钟产生一个块和计算移动平均线（MA）自动调整。规定比特币的创世块 [Block 0](https://www.blockchain.com/btc/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f) 的难度为 1，将最新块的 Hash 和 Block 0 的 Hash 相除，就可以近似的到当前的全网难度。
 
@@ -246,7 +246,7 @@ $$ n $$ 的值随着参与挖矿的人数动态改变，根据区块头的 Bits�
 ![](https://developer.bitcoin.org/_images/en-pooled-mining-overview.svg)
 *来源：bitcoin.org*
 
-加密货币还采用了很多其他技术来支持，比如最长链原则、托管和仲裁等，本文只是简单介绍涉及密码学的关键部分。你可以在 [Learn Bitcoin and start building Bitcoin-based applications](https://developer.bitcoin.org/index.html) 查看完整的比特币网络运作原理。比特币是开源的货币，你可以在 [bitcoin/bitcoin: Bitcoin Core integration/staging tree](https://github.com/bitcoin/bitcoin/) 查看比特币的源代码。
+加密货币还拥有其他功能和性质，比如托管和仲裁等，本文只是简单介绍涉及密码学的关键部分。你可以在 [Learn Bitcoin and start building Bitcoin-based applications](https://developer.bitcoin.org/index.html) 查看完整的比特币网络运作原理。比特币是开源的货币，你可以在 [bitcoin/bitcoin: Bitcoin Core integration/staging tree](https://github.com/bitcoin/bitcoin/) 查看比特币的源代码。
 
 ## Wi-Fi 访问保护（WPA）
 Wi-Fi 访问保护（WPA：Wi-Fi Protected Access®） 目前的最新版本是 WPA-3[^4]，用于保护无线局域网。在你的手机输入 Wi-Fi 密码开始，WPA 系统就在为你服务。WPA-3 在现代路由器和无线接入点产品中已经普及。
@@ -325,7 +325,9 @@ GPG 常用于签名 Linux 软件包。任何包管理器都支持导入 GPG 公�
 ## 附录
 在使用 CDN 时，无论你是把 TLS 的私钥交给云服务商，还是采用 Keyless 部署，云服务商可以看到并修改传输的内容。因为私钥只在建立 TLS 连接时有效，Session Key 仍然掌握在云服务商手中。或者在某些极端情况下，CDN 到源服务器的连接甚至直接使用没有加密的普通 HTTP。在传输关键信息时，还需要使用 JWE 和 JWT 等手段辅助。
 
-通常，非对称密钥在加密通讯时，仅用于协商密钥，最后使用协商的密钥来进行对称加密通信。退化的原因是协商出来的密钥可以用来实现前向保密，对称加密也可以使系统负载降低几个数量级。
+通常，非对称密钥在加密通讯时，仅用于协商密钥，最后使用协商的密钥来进行对称加密通信。退化的原因一是因为协商出来的密钥可以用来实现前向保密，其二也因为对称加密可以使系统负载降低几个数量级。
+
+值得一提的是，SHA-1 散列函数已被国内王小云教授等人成功以小于 $$ 2^{69} $$ 的计算复杂度使用碰撞攻击攻破。在量子计算机出现后，对于原像的碰撞攻击复杂度会显著下降。目前，多重散列是缓解该问题的一个办法。
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 

@@ -245,8 +245,6 @@ $$ n $$ 的值随着参与挖矿的人数动态改变，根据区块头的 Bits�
 ![](https://developer.bitcoin.org/_images/en-pooled-mining-overview.svg)
 *来源：bitcoin.org*
 
-也许聪明的你会发现，随着参与的人数增加， $$ n $$ 越来越大。是不是位数稍少的 SHA 就可以被矿工们破解了呢？答案是：不太可能，但 SHA 函数本身也不是不可攻破的。矿工通常使用定制的 ASIC 设备进行简单哈希碰撞，它进行的是不完全的原像攻击，不会对 SHA 2 的安全性造成影响。
-
 加密货币还拥有其他功能和性质，比如托管和仲裁等，本文只是简单介绍涉及密码学的关键部分。你可以在 [Learn Bitcoin and start building Bitcoin-based applications](https://developer.bitcoin.org/index.html) 查看完整的比特币网络运作原理。比特币是开源的货币，你可以在 [bitcoin/bitcoin: Bitcoin Core integration/staging tree](https://github.com/bitcoin/bitcoin/) 查看比特币的源代码。
 
 ## Wi-Fi 访问保护（WPA）
@@ -326,7 +324,9 @@ GPG 常用于签名 Linux 软件包。任何包管理器都支持导入 GPG 公�
 ## 附录
 在使用 CDN 时，无论你是把 TLS 的私钥交给云服务商，还是采用 Keyless 部署，云服务商可以看到并修改传输的内容。因为私钥只在建立 TLS 连接时有效，Session Key 仍然掌握在云服务商手中。或者在某些极端情况下，CDN 到源服务器的连接甚至直接使用没有加密的普通 HTTP。在传输关键信息时，还需要使用 JWE 和 JWT 等手段辅助。
 
-通常，非对称密钥在加密通讯时，仅用于协商密钥，最后使用协商的密钥来进行对称加密通信。退化的原因是协商出来的密钥可以用来实现前向保密，对称加密也可以使系统负载降低几个数量级。
+通常，非对称密钥在加密通讯时，仅用于协商密钥，最后使用协商的密钥来进行对称加密通信。退化的原因一是因为协商出来的密钥可以用来实现前向保密，其二也因为对称加密可以使系统负载降低几个数量级。
+
+值得一提的是，SHA-1 散列函数已被国内王小云教授等人成功以小于 $$ 2^{69} $$ 的计算复杂度使用碰撞攻击攻破。在量子计算机出现后，对于原像的碰撞攻击复杂度会显著下降。目前，多重散列是缓解该问题的一个办法。
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 

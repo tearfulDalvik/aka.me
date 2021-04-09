@@ -335,6 +335,8 @@ GPG 常用于签名 Linux 软件包。任何包管理器都支持导入 GPG 公�
 
 值得一提的是，SHA-1 散列函数已被国内王小云教授等人成功以小于 $$ 2^{69} $$ 的计算复杂度使用碰撞攻击攻破。在量子计算机出现后，对于原像的碰撞攻击复杂度会显著下降。目前，多重散列是缓解该问题的一个办法。
 
+最后，加密学的假设是 $$ P \neq NP $$。当今世界瞬息万变，如果有一天人们找到了更好的解题办法，现存的加密方法都将土崩瓦解。关心信息安全的你，也许应该保持一颗时常关注行业信息的心。
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 [^1]: 简化版本，请参阅：https://en.bitcoin.it/wiki/Wallet_import_format

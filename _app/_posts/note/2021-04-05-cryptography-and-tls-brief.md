@@ -137,7 +137,7 @@ PS C:\> openssl x509 -in .\cert.pem -text -noout
          1f:02:20:62:db:93:ba:a3:d3:85:8f:76:23:3e:b9:0b:a7:ae:
          bf:c9:b7:4e:c7:b1:71:98:b3:02:b2:9b:09:de:63:ac:54
 ```
-其中，Issuer 是颁发者，该证书是 CA 证书，颁发者就是他自己。同时包含了过期时间、该证书颁发给的对象、公钥类型（此处为 `ecPublicKey`，即采用 ECC 算法的公钥）、签名算法和 CA 签名等信息。Signature Algorithm 其后就是 CA 对这张证书的签名。
+其中，Issuer 是颁发者，该证书是 CA 证书，颁发者就是他自己。同时包含了过期时间、该证书颁发给的对象、公钥类型（此处为 `ecPublicKey`，即采用 ECC 算法的公钥）、签名算法和 CA 签名等信息。Signature Algorithm 其后就是 CA 对这张证书的签名。叶子证书不能再颁发新证书。
 
 将上述的 Subject Public Key Info 中的 pub 与公钥比对，发现完全一致。
 ```powershell
@@ -258,7 +258,7 @@ Wi-Fi 访问保护（WPA：Wi-Fi Protected Access®） 目前的最新版本是 
 
 WPA-3 企业级同样使用 ECDHE 进行密钥交换， 192 位 AES-GCMP 对称加密，ECDSA 进行签名。
 
-可见，WPA-3 是前向保密的。
+可见，WPA-3 是前向保密的。同样的，在 3G、4G 和 5G 数字蜂窝网络中，同样采用类似的握手和加密流程。
 
 ## BitTorrent（BT）和分散哈希表（DHT）网络
 

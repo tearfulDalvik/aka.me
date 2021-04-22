@@ -309,7 +309,7 @@ Server: cloudflare
 ```
 可以看到，从建立连接到开始传输 Application Data 仅仅使用了一个 RTT。  
 
-这次 TLS 握手选择了加密套件 `TLS_AES_256_GCM_SHA384`，即使用 AES_256_GCM 算法来维护后续的对称加密，使用 SHA384 来对消息签名。  
+这次 TLS 握手选择了加密套件 `TLS_AES_256_GCM_SHA384`，即使用 AES_256_GCM 算法来维护后续的对称加密，使用 SHA384 来对消息签名。此为 AEAD(Authenticated Encryption with Associated Data) 的典型实现，即将加密和摘要结合，同时满足机密性、完整性和认证的功能。  
 
 在连接建立之后过了很久，服务器才传回一个新的 Session Ticket，这也是 TLSv1.3 赶紧建立连接的一个体现，即 Post-Handshake 机制：  
 

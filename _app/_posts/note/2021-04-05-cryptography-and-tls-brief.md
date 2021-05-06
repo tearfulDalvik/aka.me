@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 🔒 密码学小记
+title: "🔣 密码学小记"
 category: note
 permalink: note/cryptography/
 tags: blog_notes
-plugin: twemoji lazyload lightense
+plugin: lazyload lightense
 css: |
   img.inline {
     display: inline-block;
@@ -186,7 +186,14 @@ OCSP（Online Certificate Status Protocol）是用于在线查询证书是否被
 ## 椭圆曲线密码学（ECC）
 ECC 是新一代的公钥加密算法，现常用于加密货币，中国二代身份证和 HTTPS 的加密。基于 ECC 的 ECDHE 将用于替代传统的 RSA 密钥交换方式，因为 RSA 不具备 PFS。其他情况下，ECC 具有显著的性能优势。请注意，ECC 会受到秀尔算法（Shor's algorithm）的威胁，但是秀尔算法目前只能在量子计算机上运行。  
 
-ECC 中曲线是在阿贝尔群上点群，即在曲线上进行的曲线加法和曲线乘法分别运算满足加法和乘法的交换律和结合律，直观来说就是 $$ 2 \times P = P + P; 3 \times P = 2 \times P + P = P + P + P $$。在该群上的曲线满足方程 $$ y^2=x^3+ax+b $$，其中 $$ a $$ 和 $$ b $$ 是常数，但不能随意取值，因为这样的曲线是有限的。常见的曲线有：`secp256k1`、`P-384` 和 `Curve25519`。在公开的曲线上，曲线方程（即 $$ a $$ 和 $$ b $$）、基点坐标 $$ G $$ 和大质数 $$ \rho $$ 也同时公开。基点 $$ G $$ 必须要是 $$ \rho $$ 的一个原根，不能随意选择，因此该点也被固定下来。  
+ECC 中曲线是在阿贝尔群上点群，即在曲线上进行的曲线加法和曲线乘法分别运算满足加法和乘法的交换律和结合律，直观来说就是：
+
+$$ \begin{cases}
+2 \times P = P + P\\
+3 \times P = 2 \times P + P = P + P + P
+\end{cases} $$
+
+在该群上的曲线满足方程 $$ y^2=x^3+ax+b $$，其中 $$ a $$ 和 $$ b $$ 是常数，但不能随意取值，因为这样的曲线是有限的。常见的曲线有：`secp256k1`、`P-384` 和 `Curve25519`。在公开的曲线上，曲线方程（即 $$ a $$ 和 $$ b $$）、基点坐标 $$ G $$ 和大质数 $$ \rho $$ 也同时公开。基点 $$ G $$ 必须要是 $$ \rho $$ 的一个原根，不能随意选择，因此该点也被固定下来。  
 
 通常，一方选择一个公开的曲线，通过随机数生成私钥，并通过曲线上定义的新运算将私钥和基点相乘，即 $$ pubKey=privKey \times G $$。由于曲线上满足加法和乘法的交换、结合律，该乘法的复杂度是 $$ O(log(n)) $$，其中，$$ n_{max}=2^{私钥长度} $$，即最多运算次数不会超过密钥长度。
 
@@ -232,35 +239,7 @@ Chrome 在 67 版本开始支持 [Web Authentication API](https://www.w3.org/TR/
 Windows 的磁盘加密 BitLocker，macOS 的 FileVault 都使用 AES 对称加密。在使用时，都被安全元素保护或加速。
 
 ## 加密货币
-以加密货币中的老大哥比特币（BTC）为例。在注册比特币钱包时会生成一串私钥，然后通过 ECC 和 `secp256k1` 曲线生成对应的公钥。使用 SHA-256、RIPEMD160 等方法将公钥摘要后通过除去符号和普通易混淆字母后的 base58 等算法编码即可得到成为比特币钱包地址[^1]。因为地址是摘要的结果，所以无法通过地址推回公钥。即使加了校验，也只能在拥有公钥的情况下验证地址是正确的，没有方法能保证这个地址存在对应的公钥。
-
-### 交易
-比特币的核心是区块链，区块链由无数区块组成，每个区块保存了数千笔交易，由矿工将交易打包成区块添加到区块链中。因此比特币交易（不是炒币）的信用体系就通过公开交易记录来实现，所有的交易、区块和地址都能在 [Blockchain.com](https://www.blockchain.com/) 查询到。大家都知道你之前收到过多少钱，花了多少，也就都知道了你的余额。每一笔交易都保存了付款的数量（Value）、对方的地址（Address）、付款者的公钥（Pkscript）等基本信息，并被付款者的私钥签名（Sigscript）。付款交易被你签名过，所以大家都认可是由你发出的转账；反过来，别人签名付款给你的交易就可以确定别人的确是转给你的。
-
-![](){: .lazy data-src="https://developer.bitcoin.org/_images/en-micropayment-channel.svg"}
-*来源：bitcoin.org*
-
-从你的第一笔付款开始，你的公钥就显示在交易记录里，并流传在网络中。在此之前，别人是不知道你的地址是否是真实存在的。将公钥和地址公开后，别人先将公钥 Hash 后与地址比对，成功后两者就公开绑定了，之前这个地址上的所有收入也就可以算到这把公钥上了。如果想自己弄一把自己的公钥绑定到某个其他地址上是行不通的，因为所有人都会发现这把公钥 Hash 后不能得到这个地址。所以如果打钱给了不存在的地址，那这笔钱还真就人间蒸发了，因为没有人拥有这个地址的密钥对，也就没有人能再从该地址发出转账。
-
-所有的交易记录都公开。比如，地址 `bc1qvx7u3d3ln2l8s8akk0rfm7zcdkenjzefledrs4` 进行的一次 Hash 为 [d8f81f61...31f6cd65](https://www.blockchain.com/btc/tx/d8f81f613501a3f801a440c22dcf3b87f5579dc1d28e372cae08c1d131f6cd65) 的交易，这笔交易一共转出了 $17.12 美元，其中 $4.07 美元交给矿工用作手续费，$13.06 美元成功到账。在 Inputs 中可以看到由该地址私钥签名的 Sigscript 和该地址的公钥 Pkscript，也同时包含了这笔交易的转出数量和目的地址。这项交易被记录在区块 Block 677983 中。
-
-而在区块 [Block 677983](https://www.blockchain.com/btc/block/0000000000000000000861dacbeaeef253591e6e4fc7b7bef37de76e5b91de02) 中，一共存在 2,603 笔交易，总交易额为 $5,672,091,896.90 美元。
-
-### 挖矿
-最后，将交易打包成块并存放到区块链的行为就称为挖矿。不仅可以从交易中赚到手续费，只要成功把区块附加到主链，就会得到一笔系统奖励。比如提交刚才 Block 677983 区块的矿工，就得到了价值 $56,979.08 美元的奖励。奖励的币显示为 “COINBASE (Newly Generated Coins)”，直接转入钱包地址。每一个新的区块都有新的 COINBASE。
-
-区块中也存在 Hash 摘要，这次既不是签名，也不是为了摘要，而是单纯为了增加挖矿的难度。只有少数人能够将区块打包到区块链中：如果人人都能同时附加区块，那么链中必然会出现信息不一致，并且会由能够更快附加新块的人所控制（最长链原则）。BTC 采用的机制是 PoW（Proof of Work），做的工作越多，得到的奖励就越多（即 one-CPU-one-vote[^2]）。PoW 指的是在打包时，矿工必须通过调整区块头的一个随机数（nonce）使得区块头的 SHA-256 结果的前 $$ n $$ 位数全部[^3]为 0。这样，挖到币的几率为 $$ \frac{1}{2^n} $$，并且 $$ n $$ 越大，找到一个使 SHA-256 结果的前 $$ n $$ 位全部为 0 的随机数就越难。
-
-$$ n $$ 的值随着参与挖矿的人数动态改变，根据区块头的 Bits、规定的每十分钟产生一个块和计算移动平均线（MA）自动调整。规定比特币的创世块 [Block 0](https://www.blockchain.com/btc/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f) 的难度为 1，将最新块的 Hash 和 Block 0 的 Hash 相除，就可以近似的到当前的全网难度。
-
-比如，刚才提到的区块 Block 677983 的 Hash 值为 `0x0000000000000000000861<省略>`，前 76 位全部为 0，挖到币的机率为 $$ \frac{1}{2^{76}} $$。因此，现在个人使用显卡挖 BTC 已经几乎不可能。
-
-矿场一般这样挖矿：
-
-![](){: .lazy data-src="https://developer.bitcoin.org/_images/en-pooled-mining-overview.svg"}
-*来源：bitcoin.org*
-
-加密货币还拥有其他功能和性质，比如托管和仲裁等，本文只是简单介绍涉及密码学的关键部分。你可以在 [Learn Bitcoin and start building Bitcoin-based applications](https://developer.bitcoin.org/index.html) 查看完整的比特币网络运作原理。比特币是开源的货币，你可以在 [bitcoin/bitcoin: Bitcoin Core integration/staging tree](https://github.com/bitcoin/bitcoin/) 查看比特币的源代码。
+👉 加密货币涉及的内容很多，请移步 [🪙 区块链小记](/note/blockchain/)。
 
 ## Wi-Fi 访问保护（WPA）
 Wi-Fi 访问保护（WPA：Wi-Fi Protected Access®） 目前的最新版本是 WPA-3[^4]，用于保护无线局域网。在你的手机输入 Wi-Fi 密码开始，WPA 系统就在为你服务。WPA-3 在现代路由器和无线接入点产品中已经普及。
@@ -278,16 +257,12 @@ WPA-3 企业级同样使用 ECDHE 进行密钥交换， 192 位 AES-GCMP 对称�
 
 每台播放设备都有自己的一套公私钥。设备必须经过认证，类似 HDCP。这样可以保证播放设备必须会先验证授权信息再播放，而非直接取出对称密钥随意播放。同样的，发行商可以单独吊销某台设备的设备的公私钥，用来 ban 机。
 
-
-## BitTorrent（BT）和分散哈希表（DHT）网络
-
-
 ## 传输层安全（TLS）
 最后，终于可以看到一开始的 HTTPS 问题啦！浏览器建立安全连接背后的技术是传输层安全（TLS），现在通常使用的是 1.3 版本。  
 TLSv1.3 的核心流程为：
 1. 客户端发送 Hello，快速进行密钥交换。使用上次的预共享密钥 PSK 或者 ECDHE 进行新的密钥交换。作为客户端，为节省时间，说我不管你服务器同不同意 PSK，反正 PSK 和选好的 ECDHE 的曲线名和公钥，直接都先发送过去。
-2. 服务器选择一项交换方法，返回对应的 Hello。双方通过密钥交换或者 PSK 已经得到会话的前密钥🔑。
-3. 使用密钥演变算法（HKDF：HMAC-based key-derivation function）将会话前密钥变成会话密钥🔑（类似摘要。用来保证不同算法的结果一致）。在会话密钥🔑加密的信道中验证服务器身份，然后直接开始传输数据。
+2. 服务器选择一项交换方法，返回对应的 Hello。双方通过密钥交换或者 PSK 已经得到会话的前密钥🗝️。
+3. 使用密钥演变算法（HKDF：HMAC-based key-derivation function）将会话前密钥🗝️变成会话密钥🔑（类似摘要。用来保证不同算法的结果一致）。在会话密钥🔑加密的信道中验证服务器身份，然后直接开始传输数据。
 
 得益于 TLSv1.3 的全新连接流程，在下图中从带大括号的开始数据就已经开始被加密了。双方不管三七二十一赶紧先把加密连接建立了，你认不认识我都一会儿再说。这样做主要是为了避免降维打击，即中间人强制让双方降级到不安全的加密方式。
 
@@ -361,7 +336,7 @@ BitLocker 也曾因为可以简单绕过 Kerberos 认证被破解（KB3101246）
 以上，大部分目前标记为「安全」的加密算法，尽管从数学上看仍然是安全的，在使用过程中也有可能存在漏洞。同时，今天标记为安全的算法，在计算机速度高速发展的进程中，也可以随时被宣告死亡。在设计安全系统时，实时更新才是最重要的。
 
 ## 附录
-加密学还被应用在其他方方面面，比如电子游戏或者 Netflix，iTunes 使用的视频流是被 DRM 保护的，而 DRM 的本质就是加密文件。HDMI 的 HDCP 技术就使用了密钥交换，流式对称加密和动态密钥等等。  
+加密学还被应用在其他方方面面，比如电子游戏的资源或者 Netflix，iTunes 等串流或者下载的视频是被 DRM（Digital rights management）保护的，而 DRM 的本质就是加密文件，由操作系统维护一张密钥表；HDMI 的 HDCP 技术使用了密钥交换，流式对称加密和动态密钥；哈希查找算法、BitTorrent（BT）和分散哈希表（DHT）网络等技术就使用了哈希摘要等等。
 
 在使用 CDN 时，无论你是把 TLS 的私钥交给云服务商，还是采用 Keyless 部署，云服务商可以看到并修改传输的内容。因为私钥只在建立 TLS 连接时有效，Session Key 仍然掌握在云服务商手中。或者在某些极端情况下，CDN 到源服务器的连接甚至直接使用没有加密的普通 HTTP。在传输关键信息时，还需要使用 JWE 和 JWT 等手段辅助。
 
@@ -371,8 +346,5 @@ BitLocker 也曾因为可以简单绕过 Kerberos 认证被破解（KB3101246）
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-[^1]: 简化版本，请参阅：https://en.bitcoin.it/wiki/Wallet_import_format
-[^2]: 来自 BTC 白皮书：https://bitcoin.org/bitcoin.pdf
-[^3]: 具体的实现是使用 Bits 计算 target，并使 SHA-256 结果小于 target，小于 target 的 SHA-256 结果前 n 位通常是 0，但并不是单纯置零
 [^4]: Wi-Fi Protected Access® 3 是 Wi-Fi 联盟的注册商标。请参阅： https://www.wi-fi.org/download.php?file=/sites/default/files/private/Wi-Fi_Alliance_Brand_Style_Guide_202006.pdf
 [^5]: 有限制：要求攻击者的辐射功率要远大于无线接入点的辐射功率

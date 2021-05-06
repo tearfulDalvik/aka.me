@@ -242,7 +242,7 @@ Windows 的磁盘加密 BitLocker，macOS 的 FileVault 都使用 AES 对称加�
 👉 加密货币涉及的内容很多，请移步 [🪙 区块链小记](/note/blockchain/)。
 
 ## Wi-Fi 访问保护（WPA）
-Wi-Fi 访问保护（WPA：Wi-Fi Protected Access®） 目前的最新版本是 WPA-3[^4]，用于保护无线局域网。在你的手机输入 Wi-Fi 密码开始，WPA 系统就在为你服务。WPA-3 在现代路由器和无线接入点产品中已经普及。
+Wi-Fi 访问保护（WPA：Wi-Fi Protected Access®） 目前的最新版本是 WPA-3[^1]，用于保护无线局域网。在你的手机输入 Wi-Fi 密码开始，WPA 系统就在为你服务。WPA-3 在现代路由器和无线接入点产品中已经普及。
 
 在 WPA-3 个人级中，使用 SAE（Simultaneous Authentication of Equals）进行密钥交换。SAE 算法是 ECDHE 密钥交换的变种，区别在于协商出来的密钥还受到预共享的密钥（即设定的 Wi-Fi 密码）及设备 MAC 地址的影响。密钥共享完毕后，设备使用 128 位 AES 对称加密的信道通信。同时 Wi-Fi 联盟规定使用 `P-384` 曲线用于参与 ECC 算法。
 
@@ -327,7 +327,7 @@ GPG 常用于签名 Linux 软件包。任何包管理器都支持导入 GPG 公�
 
 比特币的算力不能用来破解 SHA 算法，因为比特币的工作方式是次原像攻击。值得一提的是，SHA-1 散列函数已被国内王小云教授等人成功以小于 $$ 2^{69} $$ 的计算复杂度使用碰撞攻击攻破。在量子计算机出现后，对于原像的碰撞攻击复杂度会显著下降。目前，多重散列是缓解该问题的一个办法。
 
-WPA-2 曾因为密钥协商流程不够严谨而被破解，称作 KRACK[^5]（Key Reinstallation Attacks）。
+WPA-2 曾因为密钥协商流程不够严谨而被破解，称作 KRACK[^2]（Key Reinstallation Attacks）。
 
 BitLocker 也曾因为可以简单绕过 Kerberos 认证被破解（KB3101246）。这是双密钥机制的弊端。
 
@@ -346,5 +346,5 @@ BitLocker 也曾因为可以简单绕过 Kerberos 认证被破解（KB3101246）
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-[^4]: Wi-Fi Protected Access® 3 是 Wi-Fi 联盟的注册商标。请参阅： https://www.wi-fi.org/download.php?file=/sites/default/files/private/Wi-Fi_Alliance_Brand_Style_Guide_202006.pdf
-[^5]: 有限制：要求攻击者的辐射功率要远大于无线接入点的辐射功率
+[^1]: Wi-Fi Protected Access® 3 是 Wi-Fi 联盟的注册商标。请参阅： https://www.wi-fi.org/download.php?file=/sites/default/files/private/Wi-Fi_Alliance_Brand_Style_Guide_202006.pdf
+[^2]: 有限制：要求攻击者的辐射功率要远大于无线接入点的辐射功率

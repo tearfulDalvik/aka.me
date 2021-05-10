@@ -5,11 +5,11 @@ category: work
 permalink: work/calendarista/
 tags: works_personal
 scheme-link: "#ff3f00"
-scheme-text: "#ff3f00"
+scheme-text: "#72463d"
 ---
 
 ## Intro
-This tool will provide you a way to subscribe to students' class schedules on your calendar on PCs, mailboxes or iCloud devices. Thereby you can get informed about forthcoming classes via notification, including the professor's name, classroom it will take place and the exact time.
+**Calendarista** is a tool to provide you a way to subscribe to students' class schedules on your calendar on PCs, mailboxes or iCloud devices. Thereby you can get informed about forthcoming classes via notification, including the professor's name, classroom it will take place and the exact time.
 
 Also, subscribing to a calendar means classes can be auto-updated. You will never bother with semester changes or temporary class adjustments as long as they are updated by the academic affairs office.
 

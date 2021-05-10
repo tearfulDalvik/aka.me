@@ -6,7 +6,6 @@ permalink: work/ctas-debugger/
 tags: works_community
 plugin: lightense
 scheme-link: "#36bd6d"
-scheme-text: "#36bd6d"
 ---
 
 A Debug Tool for [CTAS Student System](http://172.20.2.205.cqu.pt/ctas/). This tool includes support of both macOS and Windows, and it is ready to install in an offline environment.

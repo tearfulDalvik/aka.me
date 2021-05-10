@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 🪙 区块链和宏观经济小记
+title: 📈 区块链和宏观经济小记
 category: note
 permalink: note/blockchain/
 tags: blog_notes
@@ -81,16 +81,15 @@ $$ n $$ 的值随着参与挖矿的人数动态改变，根据区块头的 Bits�
 
 发行数字货币同样享受铸币利差，只是谁来享受就由协议（白皮书）来决定了。一般是矿工。
 
-## 市场流动性、权益质押和流动性挖矿
-TBC...
-
 ## 挂单（Maker）和吃单（Taker）
 
 ## DeFi
+去中心化金融（Decentralized Finance：DeFi）的目标是以区块链技术和密码货币为基础，重新创造并完善已有的金融体系。其实就是把其他金融手段也去中心化，比如借贷、保险、基础设施、稳定币、去中心化交易所（DEX）、支付、衍生品与预测市场等。
+
+## 市场流动性、权益质押和流动性挖矿
+TBC...
 
 ## 流通池、无常损失和自动做市
-
-## 日内交易、量化交易和高频交易
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 

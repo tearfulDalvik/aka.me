@@ -21,6 +21,14 @@ img {
     transition: opacity 0.3s linear;
 }
 
+a.nav {
+    color: var(--text-color);
+}
+
+.active > a.nav {
+    color: var(--link-color);
+}
+
 .watermark {
     font-family: bickham-script-pro-3;
     font-feature-settings: "swsh";

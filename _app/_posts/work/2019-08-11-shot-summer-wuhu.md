@@ -4,7 +4,6 @@ title: Shots on Travel
 category: work
 permalink: work/travel-shots/
 tags: works_photo
-scheme-text: "#ff496c"
 scheme-link: "#ff496c"
 ---
 

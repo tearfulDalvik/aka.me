@@ -5,7 +5,6 @@ category: work
 permalink: work/word-line-spacer/
 tags: works_tools
 last-modified: 201708131400
-scheme-text: "#1b24fb"
 scheme-link: "#1b24fb"
 ---
 

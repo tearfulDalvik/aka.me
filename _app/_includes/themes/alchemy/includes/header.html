@@ -1,4 +1,4 @@
-<p class="watermark">Gufeng Shen</p>
+<p class="watermark" style="color: var(--text-color)">Gufeng Shen</p>
 <!-- Main navigation with current page / categoriy highlighted -->
 <div class="header">
   <ul class="tab">
@@ -7,7 +7,7 @@
       {%- assign item_url = amsf_relative_url -%}
       {%- assign lowercased_title = item.title | slugify -%}
       <li class="item {% if page.permalink == item.url or page.category == lowercased_title %}active{% endif %}">
-        <a class="low-profile" href="{{ item_url }}">
+        <a class="low-profile nav" href="{{ item_url }}">
           {%- if item.title == "__home__" -%}
             {{ amsf_site_name }}
           {%- else -%}

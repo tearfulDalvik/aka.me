@@ -1,6 +1,9 @@
 <!-- Post specified styles -->
 <style data-assets-inline>
   :root {
+    --bg-color: var(--background-color);
+    --text-color: var(--on-background-text-color);
+
     {% if page.scheme-link %}
     --link-color: {{ page.scheme-link }};
     {% endif %}
@@ -31,6 +34,7 @@
   {% endif %}
 
   body {
+    background-color: var(--bg-color);
     {% if page.scheme-bg-img %}
       {% assign first = true %}
       background-image:

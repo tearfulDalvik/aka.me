@@ -12,4 +12,4 @@ last-modified: 201711242329
 
 一键删除最后一张截图，适合发给朋友了就跑的人（逃
 
-![IMG_0060.png](https://img.akacdn.app/2017/05/04/IMG_0060.png)
+![IMG_0060.png]({{ site.file }}/2017/05/04/IMG_0060.png)

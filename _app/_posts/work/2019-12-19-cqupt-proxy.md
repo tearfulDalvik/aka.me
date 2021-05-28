@@ -10,7 +10,7 @@ To make our school's internal resources accessible from the internet, I built a 
 
 > **Disclaimer**: This is an experimental project and everything is protected via Cloudflare Access with Origin Pull to ensure that only me and the people I authorized can access the endpoint.
 
-![Screenshot](https://img.akacdn.app/d1efbd7d30ee3ed76c14986af25f3499.png)
+![Screenshot]({{ site.file }}/d1efbd7d30ee3ed76c14986af25f3499.png)
 {: .browser}
 
 ## How to use it?

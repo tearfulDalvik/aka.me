@@ -10,7 +10,7 @@ link: https://cqupt.tk/
 
 > **声明**: 该项目仅用于学习和研究目的，项目中的所有资源都被 Cloudflare Access 和 Origin Pull 保护。
 
-![Screenshot](https://img.akacdn.app/d1efbd7d30ee3ed76c14986af25f3499.png)
+![Screenshot]({{ site.file }}/d1efbd7d30ee3ed76c14986af25f3499.png)
 {: .browser}
 
 ## 如何使用？

@@ -30,15 +30,17 @@
   </header>
 
   <!-- Post content -->
-  <div class="content read p-t-sparse" style="color: var(--text-color);">
+  <div class="content read p-t-sparse" style="color: var(--text-color); 
+  {% if page.tags contains 'blog_notes' %}
+  --font-face-title: serif; --font-face-content: serif; font-family: var(--font-face-content);
+  {% endif %}
+  ">
     {{ content }}
-
-    {% assign date_publish = page.date | date: "%b %-d, %Y" %}
-    {% assign date_update  = page.last_modified_at | date: "%b %-d, %Y" %}
   </div>
-
 </article>
 
+{% assign date_publish = page.date | date: "%b %-d, %Y" %}
+{% assign date_update  = page.last_modified_at | date: "%b %-d, %Y" %}
 {% if date_publish != date_update %}
   <footer class="post-modified-date copyright p-b-none" style="padding-bottom: 0; color: var(--text-color); opacity: .6;">
     <p style="margin-bottom: 0;"><small>

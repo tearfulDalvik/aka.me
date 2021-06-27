@@ -170,6 +170,8 @@ service_worker:
     - "**/js/**.js"
 
 # Google Analytics tracking code
+###!!!! DO NOT ENABLE THIS !!!!###
+### Alchemy theme will handle this ###
 google_analytics:
   enabled:      false
   id:           G-6LH59QE96D

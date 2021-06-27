@@ -171,7 +171,7 @@ service_worker:
 
 # Google Analytics tracking code
 google_analytics:
-  enabled:      true
+  enabled:      false
   id:           G-6LH59QE96D
   url:          https://www.googletagmanager.com/gtag/js?id=G-6LH59QE96D
 
